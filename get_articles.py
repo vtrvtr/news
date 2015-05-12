@@ -9,16 +9,17 @@ sites = {'exame': 'http://exame.abril.com.br/',
                      'http://g1.globo.com/tecnologia', 
                      'http://g1.globo.com/mundo', 
                      'http://g1.globo.com/economia'],
-              'uol': 'http://noticias.uol.com.br/',
+              'uol': ['http://noticias.uol.com.br/', 
+                      'http://economia.uol.com.br/',
+                      'http://economia.uol.com.br/',
+                      'http://mulher.uol.com.br/'], 
               'terra': 'http://noticias.terra.com.br/'}
 
 news = newspaper.build(
-    sites['terra'], language='pt', memoize_articles=True, fetch_images=False)
+    sites['uol'], language='pt', memoize_articles=True, fetch_images=False)
 
 
 for cat in news.category_urls():
     print(cat)
-# a.download()
-# a.parse()
 
 
