@@ -5,21 +5,18 @@ from pathlib import Path
 news_folder = Path("E:\\", "code", 'news')
 
 sites = {'exame': 'http://exame.abril.com.br/',
-              'g1': ['http://g1.globo.com/politica', 
-                     'http://g1.globo.com/tecnologia', 
-                     'http://g1.globo.com/mundo', 
-                     'http://g1.globo.com/economia'],
-              'uol': ['http://noticias.uol.com.br/', 
-                      'http://economia.uol.com.br/',
-                      'http://economia.uol.com.br/',
-                      'http://mulher.uol.com.br/'], 
-              'terra': 'http://noticias.terra.com.br/'}
+              'g1': 'http://g1.globo.com/',
+              'uol': 'http://www.uol.com.br', 
+              'terra': 'http://www.terra.com'}
 
 news = newspaper.build(
-    sites['uol'], language='pt', memoize_articles=True, fetch_images=False)
+    sites['g1'], language='pt', memoize_articles=False, fetch_images=False)
 
 
-for cat in news.category_urls():
-    print(cat)
+
+for art in news.articles:
+    if '/mundo/' in str(art.url):
+        print(art.title.encode('utf-8')) 
+
 
 
