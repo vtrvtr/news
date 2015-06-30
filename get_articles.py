@@ -53,7 +53,7 @@ class Article(base):
 base.metadata.create_all(engine)
 
 
-add = False
+add = True
 # outlet_option = 'g1'
 session = Session()
 # def add_articles(articles, outlet_option, sites, categories):
@@ -73,15 +73,15 @@ if add:
                     for unique_url in session.query(Article).filter(Article.url == art.url):
                         if unique_url is not 0:
                             break
-                        else:
-                            session.add(Article(title=art.title, n_chars=sum(
-                                chars_count.values()), company=outlet_option, url=art.url, body=art.text))
+                    else:
+                        session.add(Article(title=art.title, n_chars=sum(
+                            chars_count.values()), company=outlet_option, url=art.url, body=art.text))
                 except Exception as e:
                     pass
         session.commit()
 
 
-total = 0
-for n in session.query(Article).filter(Article.url == 'http://exame.abril.com.br/negocios/noticias/grupo-com-sede-nos-eua-eleva-participacao-em-acoes-da-vale'):
-    print n.id
-    break
+# total = 0
+# for n in session.query(Article).filter(Article.url == 'http://exame.abril.com.br/negocios/noticias/grupo-com-sede-nos-eua-eleva-participacao-em-acoes-da-vale'):
+#     print n.id
+#     break
