@@ -31,7 +31,7 @@ categories = {'exame': ['/tecnologia/',
                         '/brasil/']}
 
 
-engine = create_engine('sqlite:///E:\\code\\news\\articles.db', echo=True)
+engine = create_engine('sqlite:///E:\\code\\news\\articles.db', echo=False)
 base = declarative_base()
 Session = sessionmaker(bind=engine)
 
@@ -53,7 +53,8 @@ class Article(base):
 base.metadata.create_all(engine)
 
 
-add = True
+add = False
+
 # outlet_option = 'g1'
 session = Session()
 # def add_articles(articles, outlet_option, sites, categories):
@@ -82,6 +83,18 @@ if add:
 
 
 # total = 0
-# for n in session.query(Article).filter(Article.url == 'http://exame.abril.com.br/negocios/noticias/grupo-com-sede-nos-eua-eleva-participacao-em-acoes-da-vale'):
-#     print n.id
-#     break
+# for n in session.query(Article).filter(Article.url != 'http://examasdase.abril.com.br/negocios/noticias/grupo-com-sede-nos-eua-eleva-participacao-em-acoes-da-vale'):
+#     total += n.n_chars
+# print total
+
+
+# print len(set(['{}'.format(n.url) for n in session.query(Article).filter
+#   (Article.url !=
+#   'asljdas')]))
+
+# print len(list(['{}'.format(n.url) for n in session.query(Article).filter
+#   (Article.url !=
+#   'asljdas')]))
+
+
+
