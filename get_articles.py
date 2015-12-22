@@ -82,19 +82,17 @@ if add:
         session.commit()
 
 
-# total = 0
-# for n in session.query(Article).filter(Article.url != 'http://examasdase.abril.com.br/negocios/noticias/grupo-com-sede-nos-eua-eleva-participacao-em-acoes-da-vale'):
-#     total += n.n_chars
-# print total
+total = 0
+for n in session.query(Article).filter(Article.url != 'http://examasdase.abril.com.br/negocios/noticias/grupo-com-sede-nos-eua-eleva-participacao-em-acoes-da-vale'):
+    total += n.n_chars
+print total
 
 
-# print len(set(['{}'.format(n.url) for n in session.query(Article).filter
-#   (Article.url !=
-#   'asljdas')]))
+print len(set(['{}'.format(n.url) for n in session.query(Article).filter
+  (Article.url != 'asljdas')]))
 
-# print len(list(['{}'.format(n.url) for n in session.query(Article).filter
-#   (Article.url !=
-#   'asljdas')]))
+print len(list(['{}'.format(n.url) for n in session.query(Article).filter
+  (Article.url != 'asljdas')]))
 
 
 
